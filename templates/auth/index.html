@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ProCRM - Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/auth.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section>
+  <div class="content">
+
+    <div class="left">
+      <img src="{{ url_for('static', filename='assets/images/isolated.svg') }}" alt="icon">
+      <h1><img src="{{ url_for('static', filename='assets/images/isotitle.svg') }}" alt="icon"></h1>
+    </div>
+    <div class="right">
+      <div class="title">
+        <h2>Welcome to</h2> <img height="33px" src="{{ url_for('static', filename='assets/images/isotitle-black.svg') }}" alt="icon">
+      </div>
+      <div class="form">
+        <form>
+          <div class="inputbox">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your Name" required>
+          </div>
+          <div class="inputbox">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your Email ID" required>
+          </div>
+          <div class="inputbox">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your Password" required>
+          </div>
+          <div class="create">
+            <button type="submit">Create Account</button>
+          </div>
+          <div class="additional">
+            <p>Already have an account ? <span>Log In</span></p>
+          </div>
+        </form>
+        <div class="or">
+          <h3>OR</h3>
+          <div class="sign">
+            <button>
+              <ion-icon name="logo-google"></ion-icon> <span>Sign Up with Google</span>
+            </button>
+            <button>
+              <ion-icon name="logo-github"></ion-icon> <span>Sign Up with GitHub</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- partial -->
+  
+</body>
+</html>
