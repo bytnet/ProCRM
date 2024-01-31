@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>ProCRM - Login</title>
+  
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/auth.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/popup.css') }}">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <section>
   <div class="content">
-
     <div class="left">
       <img src="{{ url_for('static', filename='assets/images/isolated.svg') }}" alt="icon">
       <h1><img src="{{ url_for('static', filename='assets/images/isotitle.svg') }}" alt="icon"></h1>
@@ -19,47 +20,85 @@
       <div class="title">
         <h2>Welcome to</h2> <img height="33px" src="{{ url_for('static', filename='assets/images/isotitle-black.svg') }}" alt="icon">
       </div>
-      <div class="form">
-        <form>
+      <div class="form" id="formContainer">
+        <form id="signupForm" method="post" onsubmit="signupFormSubmit(event)">
           <div class="inputbox">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your Name" required>
+            <input type="text" placeholder="Enter your Name" required name="name">
           </div>
           <div class="inputbox">
             <label>Email</label>
-            <input type="email" placeholder="Enter your Email ID" required>
+            <input type="email" placeholder="Enter your Email ID" required name="email">
+          </div>
+          <div class="inputbox">
+            <label>Username</label>
+            <input type="text" placeholder="Enter your Username" required name="username">
+          </div>
+          <div class="inputbox">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your Password" required name="password">
+          </div>
+          <div class="create">
+            <button type="submit">Create Account</button>
+          </div>
+          <div class="additional">
+            <p>Already have an account ? <span onclick="toggleForm()">Log In</span></p>
+          </div>
+        </form>
+        <!--Login-->
+        <form id="loginForm" style="display: none;">
+          <div class="inputbox">
+            <label>Username</label>
+            <input type="text" placeholder="Enter UserId" required>
           </div>
           <div class="inputbox">
             <label>Password</label>
             <input type="password" placeholder="Enter your Password" required>
           </div>
           <div class="create">
-            <button type="submit">Create Account</button>
+            <button type="submit">Login</button>
           </div>
           <div class="additional">
-            <p>Already have an account ? <span>Log In</span></p>
+            <p>Don't have an account? <span onclick="toggleForm()">Sign Up</span></p>
           </div>
+
         </form>
-        <div class="or">
-          <h3>OR</h3>
-          <div class="sign">
-            <button>
-              <ion-icon name="logo-google"></ion-icon> <span>Sign Up with Google</span>
-            </button>
-            <button>
-              <ion-icon name="logo-github"></ion-icon> <span>Sign Up with GitHub</span>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
 
   </div>
 </section>
 
+<div class="wrapper red" style="display: none;">
+	<div class="header__wrapper">
+		<div class="header">
+			<div class="sign"><span></span></div>
+		</div>
+	</div>
+	<h1>Whooops</h1>
+	<p>Something went wrong, please try again.</p>
+	
+	<button>Dismiss</button>
+</div>
+
+<div class="wrapper green" style="display: none;">
+	<div class="header__wrapper">
+		<div class="header">
+			<div class="sign"><span></span></div>
+		</div>
+	</div>
+	<h1>Yeah</h1>
+	<p>Everything works fine!</p>
+	
+	<button>Now go on</button>
+</div>
+
+
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<!-- partial -->
+<script src="{{ url_for('static', filename='assets/js/auth.js') }}"></script>
+
+
   
 </body>
 </html>

@@ -38,7 +38,7 @@ button.addEventListener("mouseout", () => {
 });
 
 button.addEventListener("click", () => {
-  window.location.href = "/login";  
+  window.location.href = "/auth";  
 });
 
 // initial animations
