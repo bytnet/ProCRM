@@ -7,11 +7,45 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/auth.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/popup.css') }}">
 
+
 </head>
 <body>
+
+  <div class="popupContainer" id="popupContainer"></div>
 <!-- partial:index.partial.html -->
 <section>
-  <div class="content">
+
+  
+  <!--Proceed Popup-->
+
+  <div class="wrapper green" style="display: none; z-index: 2;">
+    <div class="header__wrapper">
+      <div class="header">
+        <div class="sign"><span></span></div>
+      </div>
+    </div>
+    <h1>Yeah</h1>
+    <p>Everything works fine!</p>
+    
+    <button>Continue</button>
+  </div>
+
+  <!--Error Popup-->
+
+  <div class="wrapper red" style="display: none; z-index: 2;">
+    <div class="header__wrapper">
+      <div class="header">
+        <div class="sign"><span></span></div>
+      </div>
+    </div>
+    <h1>Whooops</h1>
+    <p>Something went wrong, please try again.</p>
+    
+    <button>Dismiss</button>
+  </div>
+
+  
+  <div class="content" id="authForm">
     <div class="left">
       <img src="{{ url_for('static', filename='assets/images/isolated.svg') }}" alt="icon">
       <h1><img src="{{ url_for('static', filename='assets/images/isotitle.svg') }}" alt="icon"></h1>
@@ -20,6 +54,9 @@
       <div class="title">
         <h2>Welcome to</h2> <img height="33px" src="{{ url_for('static', filename='assets/images/isotitle-black.svg') }}" alt="icon">
       </div>
+
+      <!--Signup-->
+
       <div class="form" id="formContainer">
         <form id="signupForm" method="post" onsubmit="signupFormSubmit(event)">
           <div class="inputbox">
@@ -45,15 +82,18 @@
             <p>Already have an account ? <span onclick="toggleForm()">Log In</span></p>
           </div>
         </form>
+
+
         <!--Login-->
-        <form id="loginForm" style="display: none;">
+        
+        <form id="loginForm" style="display: none;" onsubmit="loginFormSubmit(event)">
           <div class="inputbox">
-            <label>Username</label>
-            <input type="text" placeholder="Enter UserId" required>
+            <label>Username or Email</label>
+            <input type="text" placeholder="Enter UserId or Email" required name="username">
           </div>
           <div class="inputbox">
             <label>Password</label>
-            <input type="password" placeholder="Enter your Password" required>
+            <input type="password" placeholder="Enter your Password" required name="password">
           </div>
           <div class="create">
             <button type="submit">Login</button>
@@ -68,30 +108,6 @@
 
   </div>
 </section>
-
-<div class="wrapper red" style="display: none;">
-	<div class="header__wrapper">
-		<div class="header">
-			<div class="sign"><span></span></div>
-		</div>
-	</div>
-	<h1>Whooops</h1>
-	<p>Something went wrong, please try again.</p>
-	
-	<button>Dismiss</button>
-</div>
-
-<div class="wrapper green" style="display: none;">
-	<div class="header__wrapper">
-		<div class="header">
-			<div class="sign"><span></span></div>
-		</div>
-	</div>
-	<h1>Yeah</h1>
-	<p>Everything works fine!</p>
-	
-	<button>Now go on</button>
-</div>
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

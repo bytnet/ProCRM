@@ -23,7 +23,7 @@ async function signupFormSubmit(event) {
     const form = event.target;
     const formData = new FormData(form);
     const url = '/register';
-  
+    
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -32,12 +32,16 @@ async function signupFormSubmit(event) {
   
       if (response.ok) {
         const result = await response.json();
-        showPopup('green', result.message);
+        if (result.status === 'success') {
+          showPopup('green', result.message);
+        } else {
+          showPopup('red', result.message);
+        }
       } else {
         const errorResult = await response.json();
-        showPopup('red', errorResult.error);
+        showPopup('red', errorResult.message);  
         console.error('Server error:', response.statusText);
-      }
+    }
     } catch (error) {
       showPopup('red', 'Error during fetch. Please try again.');
       console.error('Error during fetch:', error);
@@ -48,47 +52,53 @@ async function signupFormSubmit(event) {
     const popupWrapper = document.querySelector(`.wrapper.${color}`);
     const popupHeader = popupWrapper.querySelector('h1');
     const popupText = popupWrapper.querySelector('p');
+    const popupContainer = document.getElementById('popupContainer');
+    const authForm = document.getElementById("authForm");
   
     popupHeader.textContent = message ? message : 'Oops';
     popupText.textContent = message ? '' : 'Something went wrong, please try again.';
-  
+
+    popupContainer.style.display = 'block';
     popupWrapper.style.display = 'block';
+
   
     const dismissButton = popupWrapper.querySelector('button');
     dismissButton.addEventListener('click', () => {
       popupWrapper.style.display = 'none';
+      popupContainer.style.display = 'none';
     });
   }
 
-// document.getElementById('loginForm').addEventListener('submit',function(e){
-//     e.preventDefault();
+async function loginFormSubmit(event) {
+event.preventDefault();
 
-//     const username = document.getElementById('username').value;
-//     const password = document.getElementById('password').value;
+const form = event.target;
+const formData = new FormData(form);
+const url = '/login';
 
-//     fetch('/login',{
+try {
+  const response = await fetch(url, {
+    method: 'POST',
+    body: formData,
+  });
 
-//         method: 'POST',
-//         headers:{
-//             'Content-Type':'application/json',
+  if (response.ok) {
+    const result = await response.json();
+    if (result.status === 'success') {
+      showPopup('green', result.message);
+      window.location.href = '/dashboard';
+    } else {
+      showPopup('red', result.message);
+    }
+  } else {
+    const errorResult = await response.json();
+    showPopup('red', errorResult.message);  
+    console.error('Server error:', response.statusText);
+}
+} catch (error) {
+  showPopup('red', 'Error during fetch. Please try again.');
+  console.error('Error during fetch:', error);
+}
+}
 
-//         },
-//         body: JSON.stringify({
-//             username: username,
-//             password: password,
 
-//         }),
-//     })
-// .then(Response => Response.json())
-// .then(data => {
-//     if(data.success){
-//         console.log('Login Successful');
-//     }else{
-//         console.log('Login failed')
-//     }
-
-// })
-// .catch((error)=>{
-//     console.error('Error:',error);
-// });
-// });

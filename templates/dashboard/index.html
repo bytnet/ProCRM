@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>PRO CRM App</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>  
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dashboard.css') }}">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <div class="header">
+      <div class="logo-section">
+        <img src="static/assets/images/isolated.svg" width="50px">
+      </div>
+      <div class="search-section">
+        <div class="search-box">
+          <input type="text" class="input-box">
+          <i class="fas fa-search"></i>
+        </div>
+        <span class="date">06 May 2020</span>
+      </div>
+      <div class="profile-section">
+        <i class="far fa-bell"></i>
+        <div class="user-icon">
+          <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+        </div>
+        <span class="user-name">{{ name }}</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+    <div class="header-two">
+      <div class="request-section">
+        <button class="request-button">Request for</button>
+      </div>
+      <div class="people-header">
+        <div class="people-header-left">
+          <h2>People</h2>
+          <ul>
+            <li class="active">All</li>
+            <li>Organization</li>
+          </ul>
+        </div>
+        <div class="people-header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search by name" class="input-box">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+      <div class="selected-team">
+        <p class="selected-team-title">SELECTED</p>
+        <h3 class="selected-team-name">Design Team</h3>
+      </div>
+    </div>
+    <div class="content-section">
+      <div class="nav-bar">
+        <ul class="nav-items">
+          <li class="nav-item">
+            <i class="fas fa-columns"></i>
+            <span>Dashboard</span>
+          </li>
+          <li class="nav-item active">
+            <i class="fas fa-user-friends"></i>
+            <span>Contacts</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-hand-holding-usd"></i>
+            <span>Chat</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-signal"></i>
+            <span>Leads</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-file"></i>
+            <span>Opportunities</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-calendar"></i>
+            <span>Quotes</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-signal"></i>
+            <span>Leads</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-file"></i>
+            <span>Opportunities</span>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-calendar"></i>
+            <span>Quotes</span>
+          </li>
+        </ul>
+        <ul class="nav-footer nav-items">
+          <li class="nav-item">
+            <i class="far fa-life-ring"></i>
+            <span>Support</span>
+          </li>
+        </ul>
+        <button class="sign-out">
+          <i class="fas fa-power-off"></i>
+        </button>
+      </div>
+      <div class="main-content">
+        <div class="user-options">
+          <button class="button selected">
+            <label class="label-text">Design Team</label>
+            <span class="icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </button>
+          <button class="button">
+            <label class="label-text">Position</label>
+            <span class="icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </button>
+          <button class="button">
+            <label class="label-text">More</label>
+            <span class="icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </button>
+          <div class="sort">
+            <span class="sort-label">Sort by: </span>
+            <button class="sort-button">
+              <label class="label-text">All</label>
+              <span class="icon">
+                <i class="fas fa-chevron-down"></i>
+              </span>
+            </button>
+          </div>
+          <label for="checkbox_" class="checkbox-wrapper">
+            <input class="checkbox" id="checkbox_" type="checkbox" />
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-ellipsis-h"></i>
+            <div class="dot"></div>
+          </label>
+        </div>
+        <div class="user-cards">
+          <div class="user-card">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="image-wrapper">
+              <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+            </div>
+            <p class="user-name">User</p>
+            <p class="user-mail">User@gmail.com</p>
+            <ul class="progress-status">
+              <i class="far fa-clock"></i>
+              <li style="--color:#2b51d6;--width:100%"></li>
+              <li style="--color:#577bf9;--width:100%"></li>
+              <li style="--color:#54b5ff;--width:100%"></li>
+              <span>100%</span>
+            </ul>
+            <p class="user-role">SENIOR CREATIVE DIRECTOR</p>
+          </div>
+          <div class="user-card">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="image-wrapper">
+              <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+            </div>
+            <p class="user-name">User</p>
+            <p class="user-mail">User@gmail.com</p>
+            <ul class="progress-status">
+              <i class="far fa-clock"></i>
+              <li style="--color:#2b51d6;--width:100%"></li>
+              <li style="--color:#577bf9;--width:100%"></li>
+              <li style="--color:#54b5ff;--width:40%"></li>
+              <span>82%</span>
+            </ul>
+            <p class="user-role">CREATIVE DIRECTOR</p>
+          </div>
+          <div class="user-card">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="image-wrapper">
+              <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+            </div>
+            <p class="user-name">User</p>
+            <p class="user-mail">User@gmail.com</p>
+            <ul class="progress-status">
+              <i class="far fa-clock"></i>
+              <li style="--color:#2b51d6;--width:100%"></li>
+              <li style="--color:#577bf9;--width:100%"></li>
+              <li style="--color:#54b5ff;--width:0%"></li>
+              <span>66%</span>
+            </ul>
+            <p class="user-role">SENIOR UI DESIGNER</p>
+          </div>
+          <div class="user-card">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="image-wrapper">
+              <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+            </div>
+            <p class="user-name">User</p>
+            <p class="user-mail">User@gmail.com</p>
+            <ul class="progress-status">
+              <i class="far fa-clock"></i>
+              <li style="--color:#2b51d6;--width:100%"></li>
+              <li style="--color:#577bf9;--width:100%"></li>
+              <li style="--color:#54b5ff;--width:100%"></li>
+              <span>100%</span>
+            </ul>
+            <p class="user-role">SENIOR COPYWRITER</p>
+          </div>
+          <div class="user-card">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="image-wrapper">
+              <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+            </div>
+            <p class="user-name">User</p>
+            <p class="user-mail">User@gmail.com</p>
+            <ul class="progress-status">
+              <i class="far fa-clock"></i>
+              <li style="--color:#2b51d6;--width:100%"></li>
+              <li style="--color:#577bf9;--width:0%"></li>
+              <li style="--color:#54b5ff;--width:0%"></li>
+              <span>33%</span>
+            </ul>
+            <p class="user-role">ART DIRECTOR</p>
+          </div>
+          <div class="user-card">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="image-wrapper">
+              <img src="https://cdn-icons-png.freepik.com/512/3177/3177440.png" />
+            </div>
+            <p class="user-name">User</p>
+            <p class="user-mail">User@gmail.com</p>
+            <ul class="progress-status">
+              <i class="far fa-clock"></i>
+              <li style="--color:#2b51d6;--width:100%"></li>
+              <li style="--color:#577bf9;--width:48%"></li>
+              <li style="--color:#54b5ff;--width:0%"></li>
+              <span>48%</span>
+            </ul>
+            <p class="user-role">SENIOR UX DESIGNER</p>
+          </div>
+        </div>
+      </div>
+      <div class="aside-content">
+        <i class="fas fa-cog"></i>
+        <div class="graph">
+          <i class="fas fa-chevron-left"></i>
+          <div class="circle">
+            <p class="time-title">TIME LOG</p>
+            <p class="time-value">100%</p>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="project-stats">
+          <p class="projects-title">Projects</p>
+          <ul class="projects">
+            <li class="project">
+              <p class="project-title">TOTAL</p>
+              <p class="project-value" style="--stick-color:#395bd4">148</p>
+            </li>
+            <li class="project">
+              <p class="project-title">COMPLETED</p>
+              <p class="project-value" style="--stick-color:#6fc416">56</p>
+            </li>
+            <li class="project">
+              <p class="project-title">IN PROGRESS</p>
+              <p class="project-value" style="--stick-color:#54b5ff">76</p>
+            </li>
+            <li class="project">
+              <p class="project-title">WAITING</p>
+              <p class="project-value" style="--stick-color:#f7b500">16</p>
+            </li>
+          </ul>
+        </div>
+        <div class="declaration-wrapper">
+          <div class="declaration">
+            <div class="decl-box">
+              <i class="fas fa-comment-alt"></i>
+            </div>
+            <div class="decl-text">
+              <p class="decl-label">DECLARATION CENTER</p>
+              <p class="decl-message">Internal messages
+                <i class="fas fa-chevron-down"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- partial -->
+  
+<script>
+    const today = new Date();
+const options = { day: 'numeric', month: 'long', year: 'numeric' };
+const formattedDate = today.toLocaleDateString('en-US', options);
+
+  document.getElementsByClassName("date")[0].innerHTML = formattedDate;
+</script>
+</body>
+</html>
